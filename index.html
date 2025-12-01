@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth scroll-pt-28">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Primary Tags -->
+    <title>autiA | Agencia de Inteligencia Artificial e Ingeniería de Sistemas</title>
+    <meta name="description" content="Transformamos empresas con sistemas de IA propios y automatización de procesos. Ingeniería de software aplicada a negocio. Auditoría técnica gratuita.">
+    <meta name="keywords" content="Inteligencia Artificial, Agencia IA, Automatización, Ingeniería de Software, Consultoría Estratégica, SaaS, React, Transformación Digital, Python, Machine Learning">
+    <meta name="author" content="autiA Systems">
+    
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://autia.ai/">
+    <meta property="og:title" content="No busques más herramientas de IA. Construye Activos.">
+    <meta property="og:description" content="Ingeniería de sistemas autónomos que reducen costes y escalan facturación. Descubre la metodología autiA.">
+    <meta property="og:image" content="https://autia.ai/og-hero-capture.jpg">
+    <meta property="og:site_name" content="autiA Systems">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="No busques más herramientas de IA. Construye Activos.">
+    <meta property="twitter:description" content="Ingeniería de sistemas autónomos que reducen costes y escalan facturación. Descubre la metodología autiA.">
+    <meta property="twitter:image" content="https://autia.ai/og-hero-capture.jpg">
+
+    <!-- Favicon (Embedded SVG for immediate visibility) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230B0F19'/%3E%3Ctext x='50' y='50' font-family='monospace' font-weight='bold' font-size='60' fill='%238B5CF6' text-anchor='middle' dy='.35em'%3Ea%3C/text%3E%3C/svg%3E" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+              handwriting: ['Caveat', 'cursive'],
+            },
+            colors: {
+              brand: {
+                dark: '#0B0F19',
+                surface: '#121623',
+                violet: '#8B5CF6',
+                blue: '#3B82F6',
+              }
+            },
+            backgroundImage: {
+              'hero-glow': 'radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.15) 0%, rgba(11, 15, 25, 0) 70%)',
+              'primary-gradient': 'linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%)',
+              'card-gradient': 'linear-gradient(180deg, rgba(18, 22, 35, 0.8) 0%, rgba(11, 15, 25, 0.8) 100%)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Global Smooth Scroll Enforcement */
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: #0B0F19;
+        color: #ffffff;
+      }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0B0F19;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1f2937;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #8B5CF6;
+      }
+      .text-gradient {
+        background: linear-gradient(135deg, #fff 0%, #9ca3af 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .text-gradient-primary {
+        background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
