@@ -57,6 +57,9 @@ const App: React.FC = () => {
       {/* Pasamos la función para abrir modales desde el footer */}
       <Footer openLegalModal={openLegalModal} />
       
+      {/* Banner de Cookies (Flotante) */}
+      <CookieBanner openLegalModal={openLegalModal} />
+      
       {/* Modal Legal Global */}
       <LegalModal isOpen={modalType} onClose={closeLegalModal} />
 
@@ -65,6 +68,7 @@ const App: React.FC = () => {
         {showChat && <ChatWidget />}
       </Suspense>
 
+      {/* SONDAS DE VERCEL (Analytics y Speed Insights) */}
       <Analytics />
       <SpeedInsights />
     </div>
