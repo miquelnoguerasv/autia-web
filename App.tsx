@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Suspense } from 'react';
+import { Analytics } from "@vercel/analytics/react";
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Benefits from './components/Benefits';
@@ -61,6 +62,8 @@ const App: React.FC = () => {
       <Suspense fallback={null}>
         {showChat && <ChatWidget />}
       </Suspense>
+
+      <Analytics />
     </div>
   );
 };
