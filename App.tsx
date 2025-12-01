@@ -13,6 +13,7 @@ import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
 import LegalModal from './components/LegalModal';
+import CookieBanner from './components/CookieBanner';
 
 // Lazy load del ChatWidget para no bloquear el Main Thread inicial
 const ChatWidget = React.lazy(() => import('./components/ChatWidget'));
