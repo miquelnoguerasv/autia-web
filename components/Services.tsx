@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { AppWindow, Bot, LineChart, ArrowRight, Database, Server, Layout, Hexagon } from 'lucide-react';
@@ -122,7 +123,7 @@ const Services: React.FC = () => {
              </div>
           </motion.article>
 
-          {/* Card 3: Consultoría (Horizontal Wide) */}
+          {/* Card 3: Consultoría (Horizontal Wide) - FIXED LAYOUT */}
           <motion.article
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -133,31 +134,31 @@ const Services: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-brand-dark to-brand-surface opacity-90" />
               <div className="absolute right-0 top-0 bottom-0 w-1/2 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
-             <div className="relative p-8 md:p-10 grid grid-cols-1 md:grid-cols-2 items-center gap-8 z-10">
+             <div className="relative p-8 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-8 z-10 h-full">
                 {/* Left Content */}
-                <div>
+                <div className="flex flex-col justify-center">
                    <div className="flex items-center gap-3 mb-4">
                       <div className="p-2 bg-emerald-500/10 rounded-lg">
                         <LineChart className="text-emerald-400" size={24} />
                       </div>
                       <h3 className="text-2xl font-bold text-white">Consultoría Estratégica</h3>
                    </div>
-                   <p className="text-gray-400 text-lg">
+                   <p className="text-gray-400 text-lg leading-relaxed max-w-lg">
                       No vendemos humo. Analizamos sus flujos de caja y operaciones para implementar IA solo donde el ROI es positivo y medible.
                    </p>
                 </div>
                 
-                {/* Right Visual: Animated Radar Chart */}
-                <div className="relative h-[260px] flex items-center justify-center md:justify-end">
+                {/* Right Visual: Flex Column for Chart + Button (Fixes overlap) */}
+                <div className="flex flex-col items-center md:items-end justify-between gap-6">
                    
-                   {/* Radar Chart SVG */}
-                   <div className="relative w-64 h-64 md:mr-8 opacity-80 group-hover:opacity-100 transition-opacity duration-500" role="img" aria-label="Gráfico de radar mostrando métricas de ROI, Velocidad y Eficiencia">
+                   {/* Radar Chart SVG - Scaled to fit */}
+                   <div className="relative w-56 h-56 md:w-60 md:h-60 opacity-80 group-hover:opacity-100 transition-opacity duration-500 scale-95" role="img" aria-label="Gráfico de radar mostrando métricas de ROI, Velocidad y Eficiencia">
                       {/* Labels */}
                       <div className="absolute top-2 left-1/2 -translate-x-1/2 text-[10px] text-emerald-400 font-mono tracking-wider font-bold">ROI</div>
-                      <div className="absolute top-[30%] right-2 text-[10px] text-blue-400 font-mono tracking-wider">VELOCIDAD</div>
-                      <div className="absolute bottom-[20%] right-4 text-[10px] text-gray-500 font-mono tracking-wider">EFICIENCIA</div>
-                      <div className="absolute bottom-[20%] left-4 text-[10px] text-gray-500 font-mono tracking-wider">ESTABILIDAD</div>
-                      <div className="absolute top-[30%] left-2 text-[10px] text-violet-400 font-mono tracking-wider">ESCALA</div>
+                      <div className="absolute top-[30%] right-0 text-[10px] text-blue-400 font-mono tracking-wider">VELOCIDAD</div>
+                      <div className="absolute bottom-[20%] right-2 text-[10px] text-gray-500 font-mono tracking-wider">EFICIENCIA</div>
+                      <div className="absolute bottom-[20%] left-2 text-[10px] text-gray-500 font-mono tracking-wider">ESTABILIDAD</div>
+                      <div className="absolute top-[30%] left-0 text-[10px] text-violet-400 font-mono tracking-wider">ESCALA</div>
 
                       <svg viewBox="0 0 200 200" className="w-full h-full drop-shadow-[0_0_20px_rgba(16,185,129,0.1)]">
                           {/* Grid Polygons (Pentagon approx) */}
@@ -212,13 +213,13 @@ const Services: React.FC = () => {
                              ))}
                           </motion.g>
                           
-                          {/* Pulsing Dot at ROI (Top) - Replaced by group vertex dots, keeping center active */}
+                          {/* Center dot */}
                            <circle cx="100" cy="100" r="2" fill="white" opacity="0.5" />
                       </svg>
                    </div>
 
-                   {/* CTA Button overlaying bottom right */}
-                   <div className="absolute bottom-0 right-0">
+                   {/* CTA Button - Now part of flex flow (no absolute positioning) */}
+                   <div className="mt-auto">
                       <a 
                         href="#contacto"
                         onClick={(e) => scrollToSection(e, 'contacto')} 
