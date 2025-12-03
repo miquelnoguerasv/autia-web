@@ -86,7 +86,8 @@ const FlipCard: React.FC<FlipCardProps> = ({ item, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.2 }}
-      className="group relative h-[420px] w-full perspective-[1000px] cursor-pointer md:cursor-default"
+      // REMOVED FIXED HEIGHT (h-[500px]). Added h-full to fill grid cell evenly.
+      className="group relative h-full w-full perspective-[1000px] cursor-pointer md:cursor-default"
       onClick={handleContainerClick}
     >
       {/* Inner Container keeping 3D State - Added will-change-transform for performance */}
@@ -94,7 +95,8 @@ const FlipCard: React.FC<FlipCardProps> = ({ item, index }) => {
         className={`relative h-full w-full transition-all duration-700 [transform-style:preserve-3d] will-change-transform ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}
       >
         {/* ================= FRONT FACE ================= */}
-        <div className="absolute inset-0 h-full w-full [backface-visibility:hidden]">
+        {/* Changed from absolute inset-0 to relative h-full to drive height based on content */}
+        <div className="relative h-full w-full [backface-visibility:hidden]">
           <div className="absolute inset-0 bg-gradient-to-br from-brand-violet to-brand-blue opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
           
           <div className="relative h-full bg-brand-dark border border-white/10 rounded-2xl p-8 flex flex-col transition-all duration-300 group-hover:border-white/20">
@@ -168,7 +170,7 @@ const FlipCard: React.FC<FlipCardProps> = ({ item, index }) => {
               {item.label}
             </div>
 
-            <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
+            <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-1">
               {item.description}
             </p>
 
@@ -198,7 +200,7 @@ const FlipCard: React.FC<FlipCardProps> = ({ item, index }) => {
               </div>
 
               {/* Content */}
-              <div className="flex-1 overflow-y-auto">
+              <div className="flex-1 overflow-y-auto custom-scrollbar pr-2">
                  <h3 className="text-xl font-bold text-white mb-4">
                     {item.details.title}
                  </h3>
