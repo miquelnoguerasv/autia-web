@@ -85,7 +85,8 @@ const ROISimulator: React.FC = () => {
       {/* Background Tech Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)] pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      {/* Main Container - Updated for Full Width Alignment */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         
         {/* Header Updated */}
         <div className="text-center mb-16">
@@ -100,10 +101,10 @@ const ROISimulator: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full">
           
           {/* --- LEFT PANEL: CONTROLS (Updated Typography & Layout) --- */}
-          <div className="relative h-full flex flex-col justify-center pl-6 md:pl-8 pr-4 py-8 bg-gradient-to-r from-white/[0.02] to-transparent border-l-2 border-brand-violet/50 backdrop-blur-sm rounded-r-3xl">
+          <div className="relative h-full flex flex-col justify-center pl-6 md:pl-8 pr-4 py-8 bg-gradient-to-r from-white/[0.02] to-transparent border-l-2 border-brand-violet/50 backdrop-blur-sm rounded-r-3xl w-full">
             
             <div className="mb-10 flex items-center gap-4 pb-6 border-b border-white/5">
                 <div className="p-3 bg-brand-blue/10 rounded-xl text-brand-blue ring-1 ring-inset ring-brand-blue/20">
@@ -115,7 +116,7 @@ const ROISimulator: React.FC = () => {
                 </div>
             </div>
 
-            <div className="space-y-12">
+            <div className="space-y-12 w-full">
               
               <ControlRow 
                 label="Equipo Administrativo"
@@ -154,7 +155,7 @@ const ROISimulator: React.FC = () => {
           </div>
 
           {/* --- RIGHT PANEL: THE REACTOR --- */}
-          <div className="relative flex flex-col items-center justify-center">
+          <div className="relative flex flex-col items-center justify-center w-full">
             
             {/* Radial Visualization */}
             <div className="relative w-80 h-80 md:w-96 md:h-96 flex items-center justify-center">
@@ -297,7 +298,7 @@ const ControlRow: React.FC<ControlRowProps> = ({ label, icon: Icon, value, setVa
     };
 
     return (
-        <div className="group">
+        <div className="group w-full">
             <div className="flex justify-between items-start mb-4">
                 <div className="flex items-center gap-4">
                     <div className="p-3 rounded-lg bg-brand-violet/10 text-brand-violet ring-1 ring-inset ring-brand-violet/20 shadow-[0_0_10px_rgba(139,92,246,0.1)]">
