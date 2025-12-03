@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Benefits from './components/Benefits';
 import Services from './components/Services';
+import ArchitectureDemo from'./components/ArchitectureDemo';
 import Results from './components/Results';
 import About from './components/About';
 import Process from './components/Process';
@@ -14,6 +15,7 @@ import CTA from './components/CTA';
 import Footer from './components/Footer';
 import LegalModal from './components/LegalModal';
 import CookieBanner from './components/CookieBanner';
+import ROISimulator from './components/ROISimulator';
 
 // Lazy load del ChatWidget para no bloquear el Main Thread inicial
 const ChatWidget = React.lazy(() => import('./components/ChatWidget'));
@@ -44,8 +46,10 @@ const App: React.FC = () => {
       <main>
         <Hero />
         <Benefits />
+        <ROISimulator />
         <Services />
         <Results />
+        <ArchitectureDemo />
         <About />
         <Process />
         <Comparison />
