@@ -4,31 +4,43 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Benefits from './components/Benefits';
-import Services from './components/Services';
-import ArchitectureDemo from'./components/ArchitectureDemo';
-import Results from './components/Results';
-import About from './components/About';
-import Process from './components/Process';
-import Comparison from './components/Comparison';
-import Testimonials from './components/Testimonials';
-import CTA from './components/CTA';
-import Footer from './components/Footer';
 import LegalModal from './components/LegalModal';
 import CookieBanner from './components/CookieBanner';
-import ROISimulator from './components/ROISimulator';
 
-// Lazy load del ChatWidget para no bloquear el Main Thread inicial
+// --- LAZY LOADING (Code Splitting) ---
+// Cargamos bajo demanda los componentes que no son visibles inicialmente ("Below the Fold")
+// Esto reduce drásticamente el Time to Interactive (TTI) y el Total Blocking Time (TBT).
+
+const ROISimulator = React.lazy(() => import('./components/ROISimulator'));
+const Services = React.lazy(() => import('./components/Services'));
+const Results = React.lazy(() => import('./components/Results'));
+const ArchitectureDemo = React.lazy(() => import('./components/ArchitectureDemo'));
+const About = React.lazy(() => import('./components/About'));
+const Process = React.lazy(() => import('./components/Process'));
+const Comparison = React.lazy(() => import('./components/Comparison'));
+const Testimonials = React.lazy(() => import('./components/Testimonials'));
+const CTA = React.lazy(() => import('./components/CTA'));
+const Footer = React.lazy(() => import('./components/Footer'));
+
+// El chat ya estaba lazy, lo mantenemos
 const ChatWidget = React.lazy(() => import('./components/ChatWidget'));
+
+// Componente de carga ultraligero para evitar CLS (Cumulative Layout Shift) masivo
+const SectionLoader = () => (
+  <div className="w-full py-24 flex items-center justify-center bg-brand-dark">
+    <div className="w-8 h-8 border-2 border-brand-violet border-t-transparent rounded-full animate-spin" />
+  </div>
+);
 
 const App: React.FC = () => {
   const [showChat, setShowChat] = useState(false);
   const [modalType, setModalType] = useState<string | null>(null);
 
-  // Retrasar la carga del chat 3 segundos para priorizar LCP y TTI
+  // Retrasar la carga del chat para priorizar LCP
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowChat(true);
-    }, 3000);
+    }, 3500); // Aumentado ligeramente para dar aire al navegador
     return () => clearTimeout(timer);
   }, []);
 
@@ -44,35 +56,56 @@ const App: React.FC = () => {
     <div className="bg-brand-dark min-h-screen text-white font-sans selection:bg-brand-violet selection:text-white">
       <Navbar />
       <main>
+        {/* 1. CRITICAL RENDERING PATH (Eager Loading) */}
+        {/* Estos componentes se cargan inmediatamente para asegurar un LCP rápido */}
         <Hero />
         <Benefits />
-        <ROISimulator />
-        <Services />
-        <Results />
-        <ArchitectureDemo />
-        <About />
-        <Process />
-        <Comparison />
-        <Testimonials />
-        {/* Pasamos la función para abrir el modal de privacidad desde el checkbox */}
-        <CTA openLegalModal={openLegalModal} />
+        
+        {/* 2. LAZY LOADED SECTIONS */}
+        {/* Envolvemos en Suspense. El fallback evita que la app "parpadee" en blanco */}
+        <Suspense fallback={<SectionLoader />}>
+          
+          {/* 3. Agitación del Problema */}
+          <ROISimulator />
+          
+          {/* 4. La Solución */}
+          <Services />
+          
+          {/* 5. La Prueba */}
+          <Results />
+          
+          {/* 6. La Demostración Técnica */}
+          <ArchitectureDemo />
+          
+          {/* 7. Autoridad */}
+          <About />
+          
+          {/* 8. Metodología */}
+          <Process />
+          
+          {/* 9. Diferenciación */}
+          <Comparison />
+          
+          {/* 10. Confianza Social */}
+          <Testimonials />
+          
+          {/* 11. Cierre */}
+          <CTA openLegalModal={openLegalModal} />
+        </Suspense>
       </main>
       
-      {/* Pasamos la función para abrir modales desde el footer */}
-      <Footer openLegalModal={openLegalModal} />
+      <Suspense fallback={<div className="h-20 bg-black" />}>
+        <Footer openLegalModal={openLegalModal} />
+      </Suspense>
       
-      {/* Banner de Cookies (Flotante) */}
+      {/* Elementos Flotantes e Interactivos */}
       <CookieBanner openLegalModal={openLegalModal} />
-      
-      {/* Modal Legal Global */}
       <LegalModal isOpen={modalType} onClose={closeLegalModal} />
 
-      {/* Suspense fallback nulo porque el chat es flotante y no queremos layout shift */}
       <Suspense fallback={null}>
         {showChat && <ChatWidget />}
       </Suspense>
 
-      {/* SONDAS DE VERCEL (Analytics y Speed Insights) */}
       <Analytics />
       <SpeedInsights />
     </div>

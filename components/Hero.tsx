@@ -1,9 +1,11 @@
-
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Building2, ShoppingBag, Scale, Landmark, Zap, Terminal, Activity, Server, Calendar, TrendingUp } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  // Hook de accesibilidad: Detecta si el usuario prefiere reducir movimiento (Sistema Operativo)
+  const shouldReduceMotion = useReducedMotion();
+
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const element = document.getElementById(id);
@@ -11,6 +13,16 @@ const Hero: React.FC = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // Variantes de animación condicionales
+  const floatAnimation = shouldReduceMotion ? {} : {
+    rotateY: [-12, -8, -12], 
+    rotateX: [5, 2, 5],
+    y: [0, -10, 0]
+  };
+
+  const parallaxCard1 = shouldReduceMotion ? { y: 0 } : { y: [-15, 15, -15] };
+  const parallaxCard2 = shouldReduceMotion ? { y: 0 } : { y: [10, -10, 10] };
 
   return (
     <section id="inicio" className="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden bg-brand-dark" aria-label="Inicio">
@@ -139,22 +151,20 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, scale: 0.9, rotateY: 90 }}
             animate={{ opacity: 1, scale: 1, rotateY: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
+            // will-change-transform hint para optimización de GPU
             className="hidden lg:block relative perspective-container will-change-transform"
             style={{ perspective: '1000px' }}
             role="img"
             aria-label="Panel de control de IA mostrando métricas en tiempo real y arquitectura de sistemas"
           >
             <motion.div
-              animate={{ 
-                rotateY: [-12, -8, -12], 
-                rotateX: [5, 2, 5],
-                y: [0, -10, 0]
-              }}
+              animate={floatAnimation}
               transition={{ 
                 duration: 6, 
                 repeat: Infinity, 
                 ease: "easeInOut" 
               }}
+              // will-change-transform para aislar la capa de composición
               className="relative w-full aspect-square max-w-[600px] mx-auto will-change-transform"
               style={{ transformStyle: 'preserve-3d' }}
             >
@@ -211,7 +221,7 @@ const Hero: React.FC = () => {
 
               {/* Floating Elements (Parallax) - Added will-change-transform */}
               <motion.div 
-                animate={{ y: [-15, 15, -15] }}
+                animate={parallaxCard1}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -right-12 top-20 w-48 p-4 bg-[#121623] border border-brand-violet/30 rounded-lg shadow-xl backdrop-blur-md will-change-transform"
                 style={{ transform: 'translateZ(50px)' }}
@@ -235,7 +245,7 @@ const Hero: React.FC = () => {
               </motion.div>
 
               <motion.div 
-                animate={{ y: [10, -10, 10] }}
+                animate={parallaxCard2}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 className="absolute -left-8 bottom-32 w-40 p-3 bg-[#121623] border border-brand-blue/30 rounded-lg shadow-xl backdrop-blur-md flex items-center gap-3 will-change-transform"
                 style={{ transform: 'translateZ(30px)' }}
