@@ -48,10 +48,12 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ data, index }) => {
     <article
       className="group relative rounded-3xl bg-brand-surface/40 border border-white/5 overflow-hidden"
       onMouseMove={handleMouseMove}
+      aria-labelledby={`benefit-title-${index}`}
     >
-      {/* 1. Spotlight Background Reveal (Z-0: Behind everything) */}
+      {/* 1. Spotlight Background Reveal (Decorative) */}
       <motion.div
         className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 group-hover:opacity-100 z-0"
+        aria-hidden="true"
         style={{
           background: useMotionTemplate`
             radial-gradient(
@@ -63,9 +65,10 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ data, index }) => {
         }}
       />
 
-      {/* 2. Spotlight Border Reveal (Z-10: Above background, below content) */}
+      {/* 2. Spotlight Border Reveal (Decorative) */}
       <motion.div
         className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition duration-300 group-hover:opacity-100 z-10"
+        aria-hidden="true"
         style={{
           background: useMotionTemplate`
             radial-gradient(
@@ -94,31 +97,37 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ data, index }) => {
           <div className="absolute inset-[1px] bg-brand-dark rounded-[23px] opacity-100" />
       </motion.div>
 
-      {/* 3. Content Container (Z-20: Always on top for readability) */}
+      {/* 3. Content Container */}
       <div className="relative p-8 md:p-10 h-full flex flex-col z-20">
-         {/* Background Number */}
-         <div className="absolute right-6 top-6 text-9xl font-mono font-bold text-white/[0.02] select-none pointer-events-none z-0 transition-colors duration-500 group-hover:text-white/[0.05]">
+         {/* Background Number (Decorative) */}
+         <div 
+           className="absolute right-6 top-6 text-9xl font-mono font-bold text-white/[0.02] select-none pointer-events-none z-0 transition-colors duration-500 group-hover:text-white/[0.05]"
+           aria-hidden="true"
+         >
             0{index + 1}
          </div>
 
-         {/* Icon Nebula ("Soul") */}
-         <div className="relative w-16 h-16 mb-8 z-10 group-hover:scale-105 transition-transform duration-500">
-            {/* The Nebula Glow */}
+         {/* Icon Nebula ("Soul") - Decorative */}
+         <div 
+           className="relative w-16 h-16 mb-8 z-10 group-hover:scale-105 transition-transform duration-500"
+           aria-hidden="true"
+         >
             <div className={`absolute inset-0 bg-gradient-to-br ${data.gradient} blur-xl opacity-20 group-hover:opacity-50 transition-opacity duration-500`} />
-            
-            {/* The Icon Container */}
             <div className={`relative w-full h-full rounded-2xl bg-[#0B0F19] border border-white/10 flex items-center justify-center shadow-2xl`}>
                 <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${data.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}/>
                 <data.icon className="text-white relative z-10" size={28} />
             </div>
          </div>
 
-         {/* Title: Forces white on hover for max contrast */}
-         <h3 className="text-2xl font-bold text-gray-200 group-hover:text-white transition-colors duration-300 mb-4 z-10">
+         {/* Title: H3 for proper hierarchy */}
+         <h3 
+           id={`benefit-title-${index}`}
+           className="text-2xl font-bold text-gray-200 group-hover:text-white transition-colors duration-300 mb-4 z-10"
+         >
             {data.title}
          </h3>
          
-         {/* Description: Forces light gray on hover */}
+         {/* Description */}
          <p className="text-gray-400 font-light leading-relaxed group-hover:text-gray-100 transition-colors duration-300 z-10">
             {data.description}
          </p>
@@ -129,15 +138,23 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ data, index }) => {
 
 const Benefits: React.FC = () => {
   return (
-    <section className="py-24 bg-brand-dark relative z-20 overflow-hidden" aria-label="Beneficios principales">
-      {/* Engineering Background Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#ffffff1a_1px,transparent_1px)] [background-size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)] pointer-events-none" />
+    <section 
+      id="beneficios" 
+      className="py-24 bg-brand-dark relative z-20 overflow-hidden" 
+      aria-label="Beneficios Clave de autiA"
+    >
+      {/* Engineering Background Pattern (Decorative) */}
+      <div 
+        className="absolute inset-0 bg-[radial-gradient(#ffffff1a_1px,transparent_1px)] [background-size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)] pointer-events-none" 
+        aria-hidden="true"
+      />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <span className="text-brand-blue font-bold tracking-widest text-sm uppercase mb-2 block">
             Retorno de Inversión
           </span>
+          {/* Main Section Title as H2 */}
           <h2 className="text-3xl md:text-5xl font-sans font-bold text-white">
             Los 3 Pilares de <span className="text-gradient-primary">autiA</span>
           </h2>
