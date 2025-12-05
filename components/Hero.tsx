@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-violet to-brand-blue">
                 Sistemas de IA
               </span>{' '}
-              que funcionan mientras duermes.
+              que escalan tus operaciones sin aumentar costes fijos.
             </motion.h1>
 
             {/* Subheadline */}
@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg text-gray-400 max-w-xl mb-10 leading-relaxed font-light border-l-2 border-brand-violet/20 pl-6"
             >
-              No somos otra agencia de automatización. Diseñamos arquitecturas de IA a medida, dashboards propios y sistemas autónomos que reducen costes y escalan tu facturación.
+              Ingeniería de sistemas autónomos. Convertimos procesos manuales en activos de software propiedad de tu empresa.
             </motion.p>
 
             {/* CTAs - Optimized for CRO */}
@@ -94,7 +94,7 @@ const Hero: React.FC = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-brand-violet/20 to-brand-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <span className="relative z-10 flex items-center justify-center gap-2">
-                  Solicitar Auditoría Técnica
+                  Iniciar Auditoría de Ingeniería
                   <Calendar className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
                 </span>
               </a>
