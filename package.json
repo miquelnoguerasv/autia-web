@@ -1,0 +1,11 @@
+{
+    "name": "autia-agency-web",
+    "version": "1.0.0",
+    "description": "Website estática para autiA Agency",
+    "scripts": {
+        "build": "echo 'Sitio estático validado'"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}
