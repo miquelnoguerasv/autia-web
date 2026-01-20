@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es" class="antialiased dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad | autiA</title>
+    <meta name="description" content="Política de privacidad y protección de datos de autiA.">
+    <meta name="robots" content="index, follow"> <!-- Explicitly allow index -->
+    <link rel="canonical" href="https://www.agenciautia.es/politica-privacidad/">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000000;
+            color: #e5e5e5;
+            font-family: "Inter", sans-serif;
+        }
+
+        /* Noise Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("https://grainy-gradients.vercel.app/noise.svg");
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 100;
+            mix-blend-mode: overlay;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-neutral-300 min-h-screen flex flex-col relative">
+    <!-- Grid Background -->
+    <div class="fixed inset-0 pointer-events-none z-0 opacity-20"
+        style="background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px); background-size: 40px 40px;">
+    </div>
+
+    <nav class="p-6 border-b border-white/5 relative z-10 backdrop-blur-sm bg-black/50">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            <a href="/" class="flex items-center gap-3">
+                <img src="/logo.png" alt="autiA Logo" class="h-12 w-auto object-contain">
+            </a>
+            <a href="/"
+                class="text-sm font-medium text-neutral-400 hover:text-white transition-colors flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20v-2z" />
+                </svg>
+                Volver al inicio
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-3xl mx-auto w-full px-6 py-16 md:py-24 relative z-10">
+        <h1 class="text-3xl md:text-5xl font-medium text-white mb-12 tracking-tight">Política de Privacidad</h1>
+
+        <div class="prose prose-invert prose-emerald max-w-none text-neutral-400">
+            <div class="mb-8">
+                <h4 class="text-white text-xl font-medium mb-4">1. Responsable del Tratamiento</h4>
+                <p class="mb-4 text-neutral-400 leading-relaxed">Los datos de carácter personal que nos proporcione
+                    serán tratados por Miquel Nogueras (autiA).</p>
+            </div>
+
+            <div class="mb-8">
+                <h4 class="text-white text-xl font-medium mb-4">2. Finalidad del Tratamiento</h4>
+                <p class="mb-4 text-neutral-400 leading-relaxed">En autiA tratamos la información que nos facilitan las
+                    personas interesadas con el fin de:</p>
+                <ul class="list-disc pl-5 mb-4 space-y-2 text-neutral-400">
+                    <li>Gestionar el envío de la información o propuestas comerciales que nos soliciten a través del
+                        formulario de contacto.</li>
+                    <li>Gestionar la reserva de citas y auditorías técnicas mediante la plataforma integrada.</li>
+                    <li>Enviar boletines (newsletters) o comunicaciones comerciales, en caso de haber otorgado
+                        consentimiento explícito.</li>
+                </ul>
+            </div>
+
+            <div class="mb-8">
+                <h4 class="text-white text-xl font-medium mb-4">3. Legitimación</h4>
+                <p class="mb-4 text-neutral-400 leading-relaxed">La base legal para el tratamiento de sus datos es el
+                    consentimiento. Al rellenar los formularios y marcar la casilla de aceptación, usted acepta
+                    legítimamente el tratamiento de sus datos conforme a esta política.</p>
+            </div>
+
+            <div class="mb-8">
+                <h4 class="text-white text-xl font-medium mb-4">4. Destinatarios de Datos (Herramientas)</h4>
+                <p class="mb-4 text-neutral-400 leading-relaxed">Para prestar servicios estrictamente necesarios para el
+                    desarrollo de la actividad, autiA comparte datos con los siguientes prestadores bajo sus
+                    correspondientes condiciones de privacidad:</p>
+                <ul class="list-disc pl-5 mb-4 space-y-2 text-neutral-400">
+                    <li><strong>Automatización:</strong> n8n (Workflow automation).</li>
+                    <li><strong>Agendamiento:</strong> Cal.com, Inc. (Gestión de calendario).</li>
+                    <li><strong>Hosting y Correo:</strong> Google / Vercel.</li>
+                </ul>
+            </div>
+
+            <div class="mb-8">
+                <h4 class="text-white text-xl font-medium mb-4">5. Derechos del Usuario</h4>
+                <p class="mb-4 text-neutral-400 leading-relaxed">Cualquier persona tiene derecho a obtener confirmación
+                    sobre si en autiA estamos tratando datos personales que les conciernan o no. Las personas
+                    interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación
+                    de los datos inexactos o solicitar su supresión. Para ello, puede dirigir un email a: <a
+                        href="mailto:contacto@agenciautia.es"
+                        class="text-emerald-400 hover:text-emerald-300 transition-colors">contacto@agenciautia.es</a>.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer
+        class="py-10 border-t border-white/5 text-center text-[10px] text-neutral-600 uppercase font-mono tracking-widest relative z-10">
+        © 2026 autiA Agency. All rights reserved.
+    </footer>
+</body>
+
+</html>
