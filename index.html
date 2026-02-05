@@ -2263,8 +2263,8 @@
         }
 
         try {
-          // Send to N8N Webhook
-          const response = await fetch('https://n8n-n8n.juvvro.easypanel.host/webhook/d02ef9d4-0ada-4b1a-a8d2-e436a8275732', {
+          // Send to Vercel Function (Nodemailer)
+          const response = await fetch('/api/send-email', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
